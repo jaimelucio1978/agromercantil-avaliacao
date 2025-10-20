@@ -73,7 +73,7 @@ Executar os scripts do diretório /sql na sequência:
 
 02_create_indexes.sql
 
-3) Rodar o ETL (opcional por enquanto)
+3) Rodar o ETL
 python src/etl/etl_cepea.py
 
 4) Rodar o Streamlit
