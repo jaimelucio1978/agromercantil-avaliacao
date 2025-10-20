@@ -98,4 +98,4 @@ Contato e contribuições são bem-vindos.
 
 ✅ Status do Projeto
 
-Módulo SQL finalizado e Dashboard funcional. Evoluções em andamento.
+Módulo SQL finalizado e Dashboard funcional.
