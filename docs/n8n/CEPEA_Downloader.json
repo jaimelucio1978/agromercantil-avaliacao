@@ -1,0 +1,109 @@
+{
+  "name": "CEPEA Downloader",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://www.cepea.org.br/br/indicador/series/milho.aspx?id=77",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "Milho",
+      "name": "HTTP Request - Milho",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [350, 200]
+    },
+    {
+      "parameters": {
+        "fileName": "C:/agromercantil-avaliacao/data/raw/cepea/milho/CEPEA_MILHO_{{$now}}.xls",
+        "binaryData": "data"
+      },
+      "id": "WriteMilho",
+      "name": "Write Binary File - Milho",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [600, 200]
+    },
+    {
+      "parameters": {
+        "url": "https://www.cepea.org.br/br/indicador/series/soja.aspx?id=12",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "SojaPR",
+      "name": "HTTP Request - Soja PR",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [350, 350]
+    },
+    {
+      "parameters": {
+        "fileName": "C:/agromercantil-avaliacao/data/raw/cepea/soja/parana/CEPEA_SOJA_PR_{{$now}}.xls",
+        "binaryData": "data"
+      },
+      "id": "WriteSojaPR",
+      "name": "Write Binary File - Soja PR",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [600, 350]
+    },
+    {
+      "parameters": {
+        "url": "https://www.cepea.org.br/br/indicador/series/soja.aspx?id=92",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "SojaPRG",
+      "name": "HTTP Request - Soja PRG",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [350, 500]
+    },
+    {
+      "parameters": {
+        "fileName": "C:/agromercantil-avaliacao/data/raw/cepea/soja/paranagua/CEPEA_SOJA_PRG_{{$now}}.xls",
+        "binaryData": "data"
+      },
+      "id": "WriteSojaPRG",
+      "name": "Write Binary File - Soja PRG",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [600, 500]
+    }
+  ],
+  "connections": {
+    "HTTP Request - Milho": {
+      "main": [
+        [
+          {
+            "node": "Write Binary File - Milho",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request - Soja PR": {
+      "main": [
+        [
+          {
+            "node": "Write Binary File - Soja PR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request - Soja PRG": {
+      "main": [
+        [
+          {
+            "node": "Write Binary File - Soja PRG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
